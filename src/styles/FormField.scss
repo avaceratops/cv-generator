@@ -1,0 +1,27 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  gap: 4px;
+
+  &__input,
+  &__textarea {
+    background-color: var(--input-color);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 8px;
+    width: 100%;
+
+    &:focus-visible {
+      -webkit-appearance: none;
+      appearance: none;
+      border: 2px solid var(--focus-color);
+      box-shadow: 3px 3px 10px rgba(var(--focus-color-rgb), 0.2);
+      outline: 0;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+}
