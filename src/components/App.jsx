@@ -20,6 +20,38 @@ export default function App() {
     });
   };
 
+  const handleAddSection = (e) => {
+    dispatch({
+      type: 'add-section',
+      category: e.currentTarget.dataset.category,
+    });
+  };
+
+  const handleSection = (actionType, e) => {
+    const container = e.target.closest('[data-id]');
+    if (!container) return;
+
+    dispatch({
+      type: actionType,
+      category: container.dataset.category,
+      id: container.dataset.id,
+      key: e.target.id,
+      value: e.target.value,
+    });
+  };
+
+  const handleChangeSection = (e) => {
+    handleSection('change-section', e);
+  };
+
+  const handleDeleteSection = (e) => {
+    handleSection('delete-section', e);
+  };
+
+  const handleToggleSection = (e) => {
+    handleSection('toggle-section', e);
+  };
+
   return (
     <>
       <HamburgerMenu>
@@ -28,11 +60,23 @@ export default function App() {
         </Collapsible>
 
         <Collapsible heading="Education" icon="graduation-cap">
-          <EducationForm education={data.education} />
+          <EducationForm
+            education={data.education}
+            onAddSection={handleAddSection}
+            onChangeSection={handleChangeSection}
+            onDeleteSection={handleDeleteSection}
+            onToggleSection={handleToggleSection}
+          />
         </Collapsible>
 
         <Collapsible heading="Experience" icon="briefcase">
-          <ExperienceForm experience={data.experience} />
+          <ExperienceForm
+            experience={data.experience}
+            onAddSection={handleAddSection}
+            onChangeSection={handleChangeSection}
+            onDeleteSection={handleDeleteSection}
+            onToggleSection={handleToggleSection}
+          />
         </Collapsible>
       </HamburgerMenu>
 
