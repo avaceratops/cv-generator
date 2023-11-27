@@ -1,0 +1,34 @@
+{
+  "personal": {
+    "firstName": "First",
+    "lastName": "Last",
+    "profession": "Web developer",
+    "contactNumber": "0800 00 1066",
+    "email": "email@address.com",
+    "location": "United Kingdom"
+  },
+  "education": [
+    {
+      "id": -2,
+      "isOpen": false,
+      "institute": "University of Oxford",
+      "location": "Oxford, United Kingdom",
+      "qualification": "B.A., in Jurisprudence",
+      "yearStart": "2020",
+      "yearEnd": "2023",
+      "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat velit consequatur harum assumenda odit aspernatur quo expedita perspiciatis id atque!"
+    }
+  ],
+  "experience": [
+    {
+      "id": -1,
+      "isOpen": false,
+      "employer": "Web Solutions",
+      "location": "London, United Kingdom",
+      "position": "Junior front-end developer",
+      "yearStart": "2020",
+      "yearEnd": "2023",
+      "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat velit consequatur harum assumenda odit aspernatur quo expedita perspiciatis id atque!"
+    }
+  ]
+}
