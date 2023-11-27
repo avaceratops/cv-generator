@@ -1,5 +1,6 @@
 import { useImmerReducer } from 'use-immer';
 import Collapsible from './Collapsible';
+import CV from './CV';
 import PersonalForm from './PersonalForm';
 import exampleData from '../exampleData.json';
 
@@ -38,7 +39,7 @@ export default function App() {
         <Collapsible heading="Experience" icon="briefcase"></Collapsible>
       </section>
 
-      <section></section>
+      <CV personal={data.personal} education={data.education} experience={data.experience} />
     </>
   );
 }
