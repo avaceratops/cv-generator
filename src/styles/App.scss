@@ -1,3 +1,19 @@
+$grey-button-color: #f3f3f3;
+$red-button-color: #dc3545;
+$blue-button-color: #096efb;
+
+@mixin button-highlight($color) {
+  &:hover {
+    background-color: darken($color, 10%);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: darken($color, 15%);
+    transform: scale(0.96);
+  }
+}
+
 .cv {
   min-height: 29.7cm;
   max-width: 100%;
@@ -31,10 +47,68 @@
 
   .button-container {
     display: flex;
-    gap: 4px;
+    gap: 8px;
 
     &--editing {
       align-self: end;
     }
+  }
+}
+
+.button-container {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: 0.2s transform ease-in-out;
+
+  &--load,
+  &--clear {
+    color: #fff;
+  }
+
+  &--edit,
+  &--delete {
+    color: #fff;
+    display: grid;
+    height: 30px;
+    place-content: center;
+    width: 30px;
+  }
+
+  &--cancel,
+  &--save {
+    color: #fff;
+    width: 80px;
+  }
+
+  &--load,
+  &--edit,
+  &--save {
+    background-color: $blue-button-color;
+    @include button-highlight($blue-button-color);
+  }
+
+  &--clear,
+  &--delete,
+  &--cancel {
+    background-color: $red-button-color;
+    @include button-highlight($red-button-color);
+  }
+
+  &--add {
+    align-items: center;
+    background-color: $grey-button-color;
+    border-radius: 12px;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    padding: 10px 16px;
+    @include button-highlight($grey-button-color);
   }
 }
