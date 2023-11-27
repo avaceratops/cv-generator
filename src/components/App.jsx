@@ -3,20 +3,9 @@ import Collapsible from './Collapsible';
 import CV from './CV';
 import HamburgerMenu from './HamburgerMenu';
 import PersonalForm from './PersonalForm';
+import dataReducer from '../dataReducer';
 import exampleData from '../exampleData.json';
 import '../styles/App.scss';
-
-function dataReducer(draft, action) {
-  switch (action.type) {
-    case 'change-personal': {
-      draft.personal[action.key] = action.value;
-      break;
-    }
-    default: {
-      throw Error('Unknown action: ' + action.type);
-    }
-  }
-}
 
 export default function App() {
   const [data, dispatch] = useImmerReducer(dataReducer, exampleData);
