@@ -1,6 +1,7 @@
-export default function Form({ children }) {
+export default function Form({ onToggleSection, children }) {
   const handleSubmit = (e) => {
     e.preventDefault();
+    onToggleSection(e);
   };
 
   return (
