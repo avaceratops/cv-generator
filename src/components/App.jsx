@@ -1,6 +1,8 @@
 import { useImmerReducer } from 'use-immer';
 import Collapsible from './Collapsible';
 import CV from './CV';
+import EducationForm from './EducationForm';
+import ExperienceForm from './ExperienceForm';
 import HamburgerMenu from './HamburgerMenu';
 import PersonalForm from './PersonalForm';
 import dataReducer from '../dataReducer';
@@ -25,9 +27,13 @@ export default function App() {
           <PersonalForm onChangePersonal={handleChangePersonal} />
         </Collapsible>
 
-        <Collapsible heading="Education" icon="graduation-cap"></Collapsible>
+        <Collapsible heading="Education" icon="graduation-cap">
+          <EducationForm education={data.education} />
+        </Collapsible>
 
-        <Collapsible heading="Experience" icon="briefcase"></Collapsible>
+        <Collapsible heading="Experience" icon="briefcase">
+          <ExperienceForm experience={data.experience} />
+        </Collapsible>
       </HamburgerMenu>
 
       <CV personal={data.personal} education={data.education} experience={data.experience} />
