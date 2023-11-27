@@ -1,3 +1,6 @@
+import blankData from './blankData.json';
+import exampleData from './exampleData.json';
+
 let nextId = 0;
 
 function createNewSection(category) {
@@ -43,6 +46,12 @@ export default function dataReducer(draft, action) {
       const section = findSectionById(draft[action.category], action.id);
       section.isOpen = !section.isOpen;
       break;
+    }
+    case 'clear-data': {
+      return blankData;
+    }
+    case 'load-example': {
+      return exampleData;
     }
     default: {
       throw Error('Unknown action: ' + action.type);

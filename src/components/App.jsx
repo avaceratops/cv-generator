@@ -52,11 +52,19 @@ export default function App() {
     handleSection('toggle-section', e);
   };
 
+  const handleClearData = () => {
+    dispatch({ type: 'clear-data' });
+  };
+
+  const handleLoadExample = () => {
+    dispatch({ type: 'load-example' });
+  };
+
   return (
     <>
       <HamburgerMenu>
         <Collapsible heading="Personal" icon="user">
-          <PersonalForm onChangePersonal={handleChangePersonal} />
+          <PersonalForm personal={data.personal} onChangePersonal={handleChangePersonal} />
         </Collapsible>
 
         <Collapsible heading="Education" icon="graduation-cap">
@@ -78,6 +86,15 @@ export default function App() {
             onToggleSection={handleToggleSection}
           />
         </Collapsible>
+
+        <section className="button-container">
+          <button className="button button--clear" type="button" onClick={handleClearData}>
+            Clear data
+          </button>
+          <button className="button button--load" type="button" onClick={handleLoadExample}>
+            Load example
+          </button>
+        </section>
       </HamburgerMenu>
 
       <CV personal={data.personal} education={data.education} experience={data.experience} />

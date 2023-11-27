@@ -1,0 +1,12 @@
+{
+  "personal": {
+    "firstName": "",
+    "lastName": "",
+    "profession": "",
+    "contactNumber": "",
+    "email": "",
+    "location": ""
+  },
+  "education": [],
+  "experience": []
+}
