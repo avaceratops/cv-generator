@@ -1,6 +1,7 @@
 import { useImmerReducer } from 'use-immer';
 import Collapsible from './Collapsible';
 import CV from './CV';
+import HamburgerMenu from './HamburgerMenu';
 import PersonalForm from './PersonalForm';
 import exampleData from '../exampleData.json';
 import '../styles/App.scss';
@@ -30,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <section>
+      <HamburgerMenu>
         <Collapsible heading="Personal" icon="user">
           <PersonalForm onChangePersonal={handleChangePersonal} />
         </Collapsible>
@@ -38,7 +39,7 @@ export default function App() {
         <Collapsible heading="Education" icon="graduation-cap"></Collapsible>
 
         <Collapsible heading="Experience" icon="briefcase"></Collapsible>
-      </section>
+      </HamburgerMenu>
 
       <CV personal={data.personal} education={data.education} experience={data.experience} />
     </>
