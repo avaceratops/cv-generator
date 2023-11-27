@@ -29,8 +29,9 @@
 }
 
 :root {
-  --accent-color: #3689fc;
-  --focus-color: #3689fc;
+  --accent-color: #0395de;
+  --bg-gradient: linear-gradient(to bottom right, #f5a8b8, #5bcefa);
+  --grey-color: #5d5d5d;
   --focus-color-rgb: 54, 137, 252;
   --input-color: #f3f3f3;
 }
@@ -47,7 +48,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom right, #ff9da6, #1e90ff) fixed;
+  background: var(--bg-gradient) fixed;
   font-family: 'Roboto', sans-serif;
   margin: auto;
   max-width: 1200px;
@@ -63,4 +64,22 @@ a {
   display: flex;
   gap: 24px;
   padding: 32px;
+}
+
+@media (max-width: 800px) {
+  #root {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .no-scroll {
+    overflow-y: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 16px;
+    gap: 16px;
+  }
 }
