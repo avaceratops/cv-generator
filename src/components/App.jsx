@@ -1,17 +1,44 @@
-import { useState } from 'react'
+import { useImmerReducer } from 'use-immer';
+import Collapsible from './Collapsible';
+import PersonalForm from './PersonalForm';
+import exampleData from '../exampleData.json';
 
-function App() {
-  const [count, setCount] = useState(0)
+function dataReducer(draft, action) {
+  switch (action.type) {
+    case 'change-personal': {
+      draft.personal[action.key] = action.value;
+      break;
+    }
+    default: {
+      throw Error('Unknown action: ' + action.type);
+    }
+  }
+}
+
+export default function App() {
+  const [data, dispatch] = useImmerReducer(dataReducer, exampleData);
+
+  const handleChangePersonal = (e) => {
+    dispatch({
+      type: 'change-personal',
+      key: e.target.id,
+      value: e.target.value,
+    });
+  };
 
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
-  )
-}
+      <section>
+        <Collapsible heading="Personal" icon="user">
+          <PersonalForm onChangePersonal={handleChangePersonal} />
+        </Collapsible>
 
-export default App
+        <Collapsible heading="Education" icon="graduation-cap"></Collapsible>
+
+        <Collapsible heading="Experience" icon="briefcase"></Collapsible>
+      </section>
+
+      <section></section>
+    </>
+  );
+}
