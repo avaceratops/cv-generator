@@ -3,6 +3,7 @@ import Collapsible from './Collapsible';
 import CV from './CV';
 import PersonalForm from './PersonalForm';
 import exampleData from '../exampleData.json';
+import '../styles/App.scss';
 
 function dataReducer(draft, action) {
   switch (action.type) {
