@@ -60,13 +60,13 @@ $blue-button-color: #096efb;
       align-self: end;
     }
   }
-}
 
-.button-container {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 8px;
+  .control-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 16px 16px;
+  }
 }
 
 .button {

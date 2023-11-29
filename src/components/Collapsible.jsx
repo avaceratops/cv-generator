@@ -2,9 +2,9 @@ import { useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 import '../styles/Collapsible.scss';
 
-export default function Collapsible({ heading, icon, children }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [height, setHeight] = useState(0);
+export default function Collapsible({ heading, icon, expanded = false, children }) {
+  const [isExpanded, setIsExpanded] = useState(expanded);
+  const [height, setHeight] = useState(expanded ? 'auto' : 0);
 
   function handleClick() {
     setIsExpanded(!isExpanded);

@@ -102,26 +102,29 @@ export default function App() {
           />
         </Collapsible>
 
-        <section className="button-container">
-          <ConfirmDialog
-            triggerClass="button button--clear"
-            triggerText="Clear data"
-            title="Clear data?"
-            desc="This will delete all manually entered data, and cannot be undone."
-            actionOnClick={handleClearData}
-          />
-          <ConfirmDialog
-            triggerClass="button button--load"
-            triggerText="Load example"
-            title="Load example?"
-            desc="This will replace all manually entered data with placeholder text, and cannot be undone."
-            actionOnClick={handleLoadExample}
-          />
-        </section>
+        <Collapsible heading="Controls" icon="gear" expanded={true}>
+          <section className="control-container">
+            <ConfirmDialog
+              triggerClass="button button--clear"
+              triggerText="Clear data"
+              title="Clear data?"
+              desc="This will delete all manually entered data, and cannot be undone."
+              actionOnClick={handleClearData}
+            />
 
-        <button className="button button--pdf" onClick={handleSavePDF}>
-          Save as PDF
-        </button>
+            <ConfirmDialog
+              triggerClass="button button--load"
+              triggerText="Load example"
+              title="Load example?"
+              desc="This will replace all manually entered data with placeholder text, and cannot be undone."
+              actionOnClick={handleLoadExample}
+            />
+
+            <button className="button button--pdf" onClick={handleSavePDF}>
+              Save as PDF
+            </button>
+          </section>
+        </Collapsible>
       </HamburgerMenu>
 
       <CV personal={data.personal} education={data.education} experience={data.experience} />
