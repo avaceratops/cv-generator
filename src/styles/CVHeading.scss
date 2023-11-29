@@ -1,16 +1,15 @@
 .cv-heading {
-  align-items: end;
+  align-items: baseline;
   display: flex;
   font-size: 1.3rem;
   margin: 0 0 16px;
   width: 100%;
 
   &::after {
-    background-color: #000;
+    border-top: 1.5px solid #000;
     content: '';
     flex: 1;
-    height: 1.5px;
-    margin: 0 0 5px 5px;
+    margin-left: 4px;
   }
 
   span {
