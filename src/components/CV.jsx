@@ -44,14 +44,18 @@ export default function CV({ personal, education, experience }) {
           {education.map((section) => (
             <article key={section.id} className="cv__section">
               <p className="cv__institute">{section.institute}</p>
-              <p className="cv__location">{section.location}</p>
-              <p className="cv__qualification">{section.qualification}</p>
-              <p className="cv__year">
-                {section.yearStart}
-                {section.yearStart && section.yearEnd && ' – '}
-                {section.yearEnd}
-              </p>
-              <p className="cv__desc">{section.desc}</p>
+              {section.location && <p className="cv__location">{section.location}</p>}
+              {section.qualification && (
+                <p className="cv__qualification">{section.qualification}</p>
+              )}
+              {(section.yearStart || section.yearEnd) && (
+                <p className="cv__year">
+                  {section.yearStart}
+                  {section.yearStart && section.yearEnd && ' – '}
+                  {section.yearEnd}
+                </p>
+              )}
+              {section.desc && <p className="cv__desc">{section.desc}</p>}
             </article>
           ))}
         </section>
@@ -63,14 +67,16 @@ export default function CV({ personal, education, experience }) {
           {experience.map((section) => (
             <article key={section.id} className="cv__section">
               <p className="cv__employer">{section.employer}</p>
-              <p className="cv__location">{section.location}</p>
-              <p className="cv__position">{section.position}</p>
-              <p className="cv__year">
-                {section.yearStart}
-                {section.yearStart && section.yearEnd && ' – '}
-                {section.yearEnd}
-              </p>
-              <p className="cv__desc">{section.desc}</p>
+              {section.location && <p className="cv__location">{section.location}</p>}
+              {section.position && <p className="cv__position">{section.position}</p>}
+              {(section.yearStart || section.yearEnd) && (
+                <p className="cv__year">
+                  {section.yearStart}
+                  {section.yearStart && section.yearEnd && ' – '}
+                  {section.yearEnd}
+                </p>
+              )}
+              {section.desc && <p className="cv__desc">{section.desc}</p>}
             </article>
           ))}
         </section>
