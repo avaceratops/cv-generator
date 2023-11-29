@@ -41,44 +41,48 @@ export default function CV({ personal, education, experience }) {
       {education.length > 0 && (
         <section className="cv__education">
           <CVHeading text="Education" />
-          {education.map((section) => (
-            <article key={section.id} className="cv__section">
-              <p className="cv__institute">{section.institute}</p>
-              {section.location && <p className="cv__location">{section.location}</p>}
-              {section.qualification && (
-                <p className="cv__qualification">{section.qualification}</p>
-              )}
-              {(section.yearStart || section.yearEnd) && (
-                <p className="cv__year">
-                  {section.yearStart}
-                  {section.yearStart && section.yearEnd && ' – '}
-                  {section.yearEnd}
-                </p>
-              )}
-              {section.desc && <p className="cv__desc">{section.desc}</p>}
-            </article>
-          ))}
+          {education
+            .filter((section) => section.institute)
+            .map((section) => (
+              <article key={section.id} className="cv__section">
+                <p className="cv__institute">{section.institute}</p>
+                {section.location && <p className="cv__location">{section.location}</p>}
+                {section.qualification && (
+                  <p className="cv__qualification">{section.qualification}</p>
+                )}
+                {(section.yearStart || section.yearEnd) && (
+                  <p className="cv__year">
+                    {section.yearStart}
+                    {section.yearStart && section.yearEnd && ' – '}
+                    {section.yearEnd}
+                  </p>
+                )}
+                {section.desc && <p className="cv__desc">{section.desc}</p>}
+              </article>
+            ))}
         </section>
       )}
 
       {experience.length > 0 && (
         <section className="cv__education">
           <CVHeading text="Experience" />
-          {experience.map((section) => (
-            <article key={section.id} className="cv__section">
-              <p className="cv__employer">{section.employer}</p>
-              {section.location && <p className="cv__location">{section.location}</p>}
-              {section.position && <p className="cv__position">{section.position}</p>}
-              {(section.yearStart || section.yearEnd) && (
-                <p className="cv__year">
-                  {section.yearStart}
-                  {section.yearStart && section.yearEnd && ' – '}
-                  {section.yearEnd}
-                </p>
-              )}
-              {section.desc && <p className="cv__desc">{section.desc}</p>}
-            </article>
-          ))}
+          {experience
+            .filter((section) => section.employer)
+            .map((section) => (
+              <article key={section.id} className="cv__section">
+                <p className="cv__employer">{section.employer}</p>
+                {section.location && <p className="cv__location">{section.location}</p>}
+                {section.position && <p className="cv__position">{section.position}</p>}
+                {(section.yearStart || section.yearEnd) && (
+                  <p className="cv__year">
+                    {section.yearStart}
+                    {section.yearStart && section.yearEnd && ' – '}
+                    {section.yearEnd}
+                  </p>
+                )}
+                {section.desc && <p className="cv__desc">{section.desc}</p>}
+              </article>
+            ))}
         </section>
       )}
     </article>
