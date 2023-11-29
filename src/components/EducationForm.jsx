@@ -8,6 +8,7 @@ export default function EducationForm({
   onChangeSection,
   onDeleteSection,
   onToggleSection,
+  onRevertChanges,
 }) {
   const openSection = education.find((section) => section.isOpen);
 
@@ -55,7 +56,7 @@ export default function EducationForm({
               onChange={onChangeSection}
             />
             <section className="button-container button-container--editing">
-              <button className="button button--cancel" type="button" onClick={onToggleSection}>
+              <button className="button button--cancel" type="button" onClick={onRevertChanges}>
                 Cancel
               </button>
               <button className="button button--save" type="submit">

@@ -1,4 +1,5 @@
 import { useImmerReducer } from 'use-immer';
+import { useState } from 'react';
 import Collapsible from './Collapsible';
 import ConfirmDialog from './ConfirmDialog';
 import CV from './CV';
@@ -12,6 +13,7 @@ import '../styles/App.scss';
 
 export default function App() {
   const [data, dispatch] = useImmerReducer(dataReducer, exampleData);
+  const [cache, setCache] = useState(null);
 
   const handleChangePersonal = (e) => {
     dispatch({
@@ -22,6 +24,7 @@ export default function App() {
   };
 
   const handleAddSection = (e) => {
+    setCache(data);
     dispatch({
       type: 'add-section',
       category: e.currentTarget.dataset.category,
@@ -50,6 +53,7 @@ export default function App() {
   };
 
   const handleToggleSection = (e) => {
+    setCache(data);
     handleSection('toggle-section', e);
   };
 
@@ -59,6 +63,10 @@ export default function App() {
 
   const handleLoadExample = () => {
     dispatch({ type: 'load-example' });
+  };
+
+  const handleRevertChanges = () => {
+    dispatch({ type: 'revert-changes', cache });
   };
 
   return (
@@ -75,6 +83,7 @@ export default function App() {
             onChangeSection={handleChangeSection}
             onDeleteSection={handleDeleteSection}
             onToggleSection={handleToggleSection}
+            onRevertChanges={handleRevertChanges}
           />
         </Collapsible>
 
@@ -85,6 +94,7 @@ export default function App() {
             onChangeSection={handleChangeSection}
             onDeleteSection={handleDeleteSection}
             onToggleSection={handleToggleSection}
+            onRevertChanges={handleRevertChanges}
           />
         </Collapsible>
 

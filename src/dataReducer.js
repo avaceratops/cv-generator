@@ -53,6 +53,9 @@ export default function dataReducer(draft, action) {
     case 'load-example': {
       return exampleData;
     }
+    case 'revert-changes': {
+      return action.cache;
+    }
     default: {
       throw Error('Unknown action: ' + action.type);
     }
