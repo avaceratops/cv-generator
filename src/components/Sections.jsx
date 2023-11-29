@@ -1,3 +1,5 @@
+import ConfirmDialog from './ConfirmDialog';
+
 export default function Sections({
   array,
   category,
@@ -12,10 +14,13 @@ export default function Sections({
         <section key={section.id} className="section" data-category={category} data-id={section.id}>
           <span>{section[headingKey] || 'Unnamed'}</span>
           <section className="button-container">
-            <button className="button button--delete" onClick={onDeleteSection}>
-              <i className="fa-solid fa-trash-can" aria-hidden="true"></i>
-              <span className="fa-sr-only">Delete section</span>
-            </button>
+            <ConfirmDialog
+              triggerIcon="trash-can"
+              triggerClass="button button--delete"
+              triggerText="Delete section"
+              title={`Delete ${section[headingKey]}?`}
+              actionOnClick={() => onDeleteSection(category, section.id)}
+            />
             <button className="button button--edit" onClick={onToggleSection}>
               <i className="fa-solid fa-pencil" aria-hidden="true"></i>
               <span className="fa-sr-only">Edit section</span>

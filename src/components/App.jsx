@@ -45,8 +45,8 @@ export default function App() {
     handleSection('change-section', e);
   };
 
-  const handleDeleteSection = (e) => {
-    handleSection('delete-section', e);
+  const handleDeleteSection = (category, id) => {
+    dispatch({ type: 'delete-section', category, id });
   };
 
   const handleToggleSection = (e) => {
