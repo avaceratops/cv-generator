@@ -1,5 +1,6 @@
 import { useImmerReducer } from 'use-immer';
 import Collapsible from './Collapsible';
+import ConfirmDialog from './ConfirmDialog';
 import CV from './CV';
 import EducationForm from './EducationForm';
 import ExperienceForm from './ExperienceForm';
@@ -88,12 +89,16 @@ export default function App() {
         </Collapsible>
 
         <section className="button-container">
-          <button className="button button--clear" type="button" onClick={handleClearData}>
-            Clear data
-          </button>
-          <button className="button button--load" type="button" onClick={handleLoadExample}>
-            Load example
-          </button>
+          <ConfirmDialog
+            triggerClass="button button--clear"
+            triggerText="Clear data"
+            actionOnClick={handleClearData}
+          />
+          <ConfirmDialog
+            triggerClass="button button--load"
+            triggerText="Load example"
+            actionOnClick={handleLoadExample}
+          />
         </section>
       </HamburgerMenu>
 
