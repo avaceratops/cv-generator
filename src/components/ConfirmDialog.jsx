@@ -1,7 +1,13 @@
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import '../styles/ConfirmDialog.scss';
 
-export default function ConfirmDialog({ triggerClass, triggerText, title, desc, actionOnClick }) {
+export default function ConfirmDialog({
+  triggerClass,
+  triggerText,
+  title = 'Are you sure?',
+  desc = 'This action cannot be undone.',
+  actionOnClick,
+}) {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger asChild>
@@ -10,12 +16,8 @@ export default function ConfirmDialog({ triggerClass, triggerText, title, desc, 
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="dialog-overlay" />
         <AlertDialog.Content className="dialog">
-          <AlertDialog.Title className="dialog__title">
-            {title || 'Are you sure?'}
-          </AlertDialog.Title>
-          <AlertDialog.Description className="dialog__desc">
-            {desc || 'This action will erase all manually entered data, and cannot be reversed.'}
-          </AlertDialog.Description>
+          <AlertDialog.Title className="dialog__title">{title}</AlertDialog.Title>
+          <AlertDialog.Description className="dialog__desc">{desc}</AlertDialog.Description>
           <div className="button-container">
             <AlertDialog.Cancel asChild>
               <button className="button button--cancel">Cancel</button>

@@ -92,11 +92,15 @@ export default function App() {
           <ConfirmDialog
             triggerClass="button button--clear"
             triggerText="Clear data"
+            title="Clear data?"
+            desc="This will delete all manually entered data, and cannot be undone."
             actionOnClick={handleClearData}
           />
           <ConfirmDialog
             triggerClass="button button--load"
             triggerText="Load example"
+            title="Load example?"
+            desc="This will replace all manually entered data with placeholder text, and cannot be undone."
             actionOnClick={handleLoadExample}
           />
         </section>
