@@ -1,5 +1,6 @@
 $grey-button-color: #f3f3f3;
 $red-button-color: #dc3545;
+$green-button-color: #218739;
 $blue-button-color: #096efb;
 
 @mixin button-highlight($color) {
@@ -19,6 +20,11 @@ $blue-button-color: #096efb;
   min-height: 29.7cm;
   max-width: 100%;
   width: 21cm;
+
+  &__section {
+    overflow-wrap: anywhere;
+    page-break-inside: avoid;
+  }
 }
 
 .collapsible__children {
@@ -60,6 +66,7 @@ $blue-button-color: #096efb;
   display: grid;
   gap: 8px;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 8px;
 }
 
 .button {
@@ -68,6 +75,7 @@ $blue-button-color: #096efb;
   padding: 8px 12px;
   transition: 0.2s transform ease-in-out;
 
+  &--pdf,
   &--load,
   &--clear {
     color: #fff;
@@ -112,5 +120,24 @@ $blue-button-color: #096efb;
     justify-content: center;
     padding: 10px 16px;
     @include button-highlight($grey-button-color);
+  }
+
+  &--pdf {
+    background-color: $green-button-color;
+    width: 100%;
+    @include button-highlight($green-button-color);
+  }
+}
+
+@media print {
+  .hamburger {
+    display: none;
+  }
+
+  .cv {
+    box-shadow: none;
+    height: 100%;
+    padding: 16px;
+    width: 100%;
   }
 }

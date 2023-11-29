@@ -1,5 +1,5 @@
-import { useImmerReducer } from 'use-immer';
 import { useState } from 'react';
+import { useImmerReducer } from 'use-immer';
 import Collapsible from './Collapsible';
 import ConfirmDialog from './ConfirmDialog';
 import CV from './CV';
@@ -69,6 +69,10 @@ export default function App() {
     dispatch({ type: 'revert-changes', cache });
   };
 
+  const handleSavePDF = () => {
+    window.print();
+  };
+
   return (
     <>
       <HamburgerMenu>
@@ -114,6 +118,10 @@ export default function App() {
             actionOnClick={handleLoadExample}
           />
         </section>
+
+        <button className="button button--pdf" onClick={handleSavePDF}>
+          Save as PDF
+        </button>
       </HamburgerMenu>
 
       <CV personal={data.personal} education={data.education} experience={data.experience} />

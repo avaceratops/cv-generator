@@ -84,3 +84,13 @@ a {
     gap: 16px;
   }
 }
+
+@media print {
+  @page {
+    margin: 80px 60px;
+  }
+
+  #root {
+    padding: 0;
+  }
+}
