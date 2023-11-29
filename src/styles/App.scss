@@ -3,6 +3,7 @@ $red-button-color: #dc3545;
 $blue-button-color: #096efb;
 
 @mixin button-highlight($color) {
+  &:focus-visible,
   &:hover {
     background-color: darken($color, 10%);
     cursor: pointer;
@@ -70,6 +71,7 @@ $blue-button-color: #096efb;
   &--load,
   &--clear {
     color: #fff;
+    padding: 14px 12px;
   }
 
   &--edit,
