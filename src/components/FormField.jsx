@@ -11,7 +11,14 @@ export default function FormField({
 }) {
   return (
     <label className="form-field">
-      {label}
+      <span>
+        {label}
+        {required && (
+          <span className="form-field__required" aria-hidden="true">
+            {' (required)'}
+          </span>
+        )}
+      </span>
       {type === 'textarea' ? (
         <textarea
           className="form-field__textarea"

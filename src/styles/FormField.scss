@@ -4,6 +4,13 @@
   font-weight: bold;
   gap: 4px;
 
+  &__required {
+    color: var(--grey-color);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-variant: small-caps;
+    font-weight: normal;
+  }
+
   &__input,
   &__textarea {
     background-color: var(--input-color);
